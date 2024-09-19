@@ -1,0 +1,11 @@
+fastapi>=0.115.0
+typing-extensions>=4.0
+sqlalchemy[asyncio]
+sqlmodel
+alembic
+alembic_autogenerate_enums
+sentry-sdk[fastapi]
+psycopg2-binary
+pyjwt
+passlib
+argon2_cffi

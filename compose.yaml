@@ -1,0 +1,46 @@
+name: civil-case-api
+
+services:
+  db:
+    container_name: case-api-db
+    image: postgres:16
+    environment: &database_config
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: case_api
+      POSTGRES_PORT: 5432
+      POSTGRES_HOST: db
+    ports:
+      - "5436:5432"
+    healthcheck:
+      test: pg_isready -U postgres -d case_api
+      start_period: 5s
+      start_interval: 0.2s
+      interval: 30s
+      timeout: 3s
+      retries: 3
+
+  api:
+    container_name: case-api
+    build: .
+    command: uvicorn app:case_api --host 0.0.0.0 --port 8027 --reload
+    ports:
+      - "8027:8027"
+    environment:
+      SECRET_KEY: "TEST_KEY"
+      <<: *database_config
+    volumes:
+      - ./app:/home/app/case_api/app
+    depends_on:
+      db:
+        condition: service_healthy
+
+  migrations:
+    build: .
+    container_name: db-migrations
+    command: alembic upgrade head
+    environment:
+      <<: *database_config
+    depends_on:
+      db:
+        condition: service_healthy

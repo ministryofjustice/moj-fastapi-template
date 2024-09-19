@@ -1,0 +1,15 @@
+# Default values for cla-backend in a dev environment.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicas:
+  app: 4
+environment: production
+
+ingress:
+  enabled: false
+  hosts:
+    - host: "laa-civil-case-api.cloud-platform.service.justice.gov.uk"
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
