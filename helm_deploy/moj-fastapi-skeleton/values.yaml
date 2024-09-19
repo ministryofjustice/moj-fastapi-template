@@ -1,4 +1,4 @@
-# Default values for laa-civil-case-api.
+# Default values for moj-fastapi-skeleton.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -7,7 +7,7 @@ replicas:
   worker: 1
 environment: development
 image:
-  repository: laa-civil-case-api
+  repository: moj-fastapi-skeleton
   pullPolicy: IfNotPresent
   containerPort: 8027
   # Overrides the image tag whose default is the chart appVersion.

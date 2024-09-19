@@ -1,4 +1,4 @@
-# Default values for cla-backend in a dev environment.
+# Default values for moj-fastapi-skeleton in a dev environment.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -9,7 +9,7 @@ environment: production
 ingress:
   enabled: false
   hosts:
-    - host: "laa-civil-case-api.cloud-platform.service.justice.gov.uk"
+    - host: "moj-fastapi-skeleton.cloud-platform.service.justice.gov.uk"
       paths:
         - path: /
           pathType: ImplementationSpecific

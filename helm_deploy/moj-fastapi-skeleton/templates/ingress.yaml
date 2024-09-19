@@ -1,5 +1,5 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "laa-civil-case-api.fullname" . -}}
+{{- $fullName := include "moj-fastapi-skeleton.fullname" . -}}
 {{- $svcPort := .Values.service.port -}}
 {{- if and .Values.ingress.className (not (semverCompare ">=1.18-0" .Capabilities.KubeVersion.GitVersion)) }}
   {{- if not (hasKey .Values.ingress.annotations "kubernetes.io/ingress.class") }}
@@ -11,12 +11,12 @@ kind: Ingress
 metadata:
   name: {{ $fullName }}
   labels:
-    {{- include "laa-civil-case-api.labels" . | nindent 4 }}
+    {{- include "moj-fastapi-skeleton.labels" . | nindent 4 }}
   annotations:
     {{- if .Values.ingress.cluster.name }}
     external-dns.alpha.kubernetes.io/set-identifier: "{{ $fullName }}-{{ .Release.Namespace }}-{{- .Values.ingress.cluster.name -}}"
     external-dns.alpha.kubernetes.io/aws-weight: "{{- .Values.ingress.cluster.weight -}}"
-    nginx.ingress.kubernetes.io/whitelist-source-range: "{{ include "laa-access-civil-legal-aid.whitelist" . }}"
+    nginx.ingress.kubernetes.io/whitelist-source-range: "{{ include "moj-fastapi-skeleton.whitelist" . }}"
     {{- end }}
     {{- with .Values.ingress.annotations }}
     {{- toYaml . | nindent 4 }}

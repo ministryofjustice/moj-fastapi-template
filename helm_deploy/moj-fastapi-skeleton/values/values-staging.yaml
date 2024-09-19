@@ -1,4 +1,4 @@
-# Default values for laa-civil-case-api.
+# Default values for moj-fastapi-skeleton.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -10,7 +10,7 @@ environment: staging
 ingress:
   enabled: false
   hosts:
-    - host: "laa-civil-case-api-staging.cloud-platform.service.justice.gov.uk"
+    - host: "moj-fastapi-skeleton-staging.cloud-platform.service.justice.gov.uk"
       paths:
         - path: /
           pathType: ImplementationSpecific

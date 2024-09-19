@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "laa-civil-case-api.fullname" . }}
+  name: {{ include "moj-fastapi-skeleton.fullname" . }}
   labels:
-    {{- include "laa-civil-case-api.labels" . | nindent 4 }}
+    {{- include "moj-fastapi-skeleton.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "laa-civil-case-api.selectorLabels" . | nindent 6 }}
+      {{- include "moj-fastapi-skeleton.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,7 +18,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "laa-civil-case-api.labels" . | nindent 8 }}
+        {{- include "moj-fastapi-skeleton.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
@@ -27,7 +27,7 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "laa-civil-case-api.serviceAccountName" . }}
+      serviceAccountName: {{ include "moj-fastapi-skeleton.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
@@ -37,7 +37,7 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
-            {{ include "laa-civil-case-api.app.vars" . | nindent 12 }}
+            {{ include "moj-fastapi-skeleton.app.vars" . | nindent 12 }}
           ports:
             - name: http
               containerPort: {{ .Values.image.containerPort }}

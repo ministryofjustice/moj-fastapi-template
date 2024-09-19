@@ -2,7 +2,7 @@ import os
 
 
 class Config(object):
-    ENVIRONMENT = os.environ.get("CLA_ENVIRONMENT", "unknown")
+    ENVIRONMENT = os.environ.get("ENVIRONMENT", "unknown")
 
     # The default DB parameters are set to allow you to connect to the Docker DB
     DB_USER = os.environ.get("POSTGRES_USER", "postgres")
