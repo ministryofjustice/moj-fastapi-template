@@ -1,0 +1,75 @@
+name: Feature Branch
+
+run-name: Feature - ${{ github.head_ref || github.ref_name }}
+
+on:
+  push:
+    branches-ignore:
+      - main
+  pull_request:
+    types:
+      - reopened
+
+jobs: 
+  test:
+    name: Test
+    uses: ./.github/workflows/test.yml
+
+  static-analysis:
+    name: Static Analysis
+    needs: test
+    uses: ./.github/workflows/static-analysis.yml
+    secrets:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+  build-and-push:
+    name: Build
+    uses: ./.github/workflows/build.yml
+    with:
+      ECR_REGION: ${{vars.ECR_REGION}}
+      ECR_REPOSITORY: ${{vars.ECR_REPOSITORY}}
+    secrets:
+      ECR_ROLE_TO_ASSUME: ${{ secrets.ECR_ROLE_TO_ASSUME }}
+
+  scan-image:
+    uses: ./.github/workflows/scan-image.yml
+    needs: build-and-push
+    with:
+      ECR_REPOSITORY: ${{vars.ECR_REPOSITORY}}
+      ECR_REGION: ${{vars.ECR_REGION}}
+    secrets:
+      ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
+      ECR_ROLE_TO_ASSUME: ${{ secrets.ECR_ROLE_TO_ASSUME }}
+
+
+  deploy-dev:
+    name: Dev
+    uses: ./.github/workflows/deploy-dev.yml
+    needs: build-and-push
+    with:
+      environment: dev
+      ECR_REGION: ${{vars.ECR_REGION}}
+      ECR_REPOSITORY: ${{vars.ECR_REPOSITORY}}
+    secrets:
+      ECR_ROLE_TO_ASSUME: ${{ secrets.ECR_ROLE_TO_ASSUME }}
+      ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
+      KUBE_CERT: ${{ secrets.KUBE_CERT }}
+      KUBE_CLUSTER: ${{ secrets.KUBE_CLUSTER }}
+      KUBE_NAMESPACE: ${{ secrets.KUBE_NAMESPACE }}
+      KUBE_TOKEN: ${{ secrets.KUBE_TOKEN }}
+
+  deploy-uat:
+    name: UAT
+    uses: ./.github/workflows/deploy.yml
+    needs: [deploy-dev, static-analysis, test, scan-image]
+    with:
+      environment: uat
+      ECR_REGION: ${{vars.ECR_REGION}}
+      ECR_REPOSITORY: ${{vars.ECR_REPOSITORY}}
+    secrets:
+      ECR_ROLE_TO_ASSUME: ${{ secrets.ECR_ROLE_TO_ASSUME }}
+      ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
+      KUBE_CERT: ${{ secrets.KUBE_CERT }}
+      KUBE_CLUSTER: ${{ secrets.KUBE_CLUSTER }}
+      KUBE_NAMESPACE: ${{ secrets.KUBE_NAMESPACE }}
+      KUBE_TOKEN: ${{ secrets.KUBE_TOKEN }}
