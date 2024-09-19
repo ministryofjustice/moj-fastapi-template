@@ -9,3 +9,5 @@ psycopg2-binary
 pyjwt
 passlib
 argon2_cffi
+python-multipart
+uvicorn

@@ -9,7 +9,7 @@ class Config(object):
     DB_PASSWORD = os.environ.get("POSTGRES_PASSWORD", "postgres")
     DB_HOST = os.environ.get("POSTGRES_HOST", "localhost")
     DB_PORT = os.environ.get("POSTGRES_PORT", "5436")
-    DB_NAME = os.environ.get("POSTGRES_DB", "case_api")
+    DB_NAME = os.environ.get("POSTGRES_DB", "api")
 
     DB_LOGGING = os.environ.get("DB_LOGGING", "False") == "True"
 

@@ -7,8 +7,8 @@ ARG REQUIREMENTS=requirements-production.txt
 RUN adduser --disabled-password app -u 1000 && \
     cp /usr/share/zoneinfo/Europe/London /etc/localtime
 
-RUN mkdir /home/app/case_api
-WORKDIR /home/app/case_api
+RUN mkdir /home/app/moj-fastapi-skeleton
+WORKDIR /home/app/moj-fastapi-skeleton
 
 COPY requirements/generated/$REQUIREMENTS requirements.txt
 RUN pip install --upgrade pip
@@ -30,4 +30,4 @@ USER app
 # Expose the fast api port
 EXPOSE 8027
 
-CMD ["uvicorn", "app:case_api", "--port",  "8027", "--host", "0.0.0.0"]
+CMD ["uvicorn", "app:api", "--port",  "8027", "--host", "0.0.0.0"]

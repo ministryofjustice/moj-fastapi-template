@@ -1,19 +1,19 @@
-name: civil-case-api
+name: moj-fastapi-skeleton
 
 services:
   db:
-    container_name: case-api-db
+    container_name: db
     image: postgres:16
     environment: &database_config
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: case_api
+      POSTGRES_DB: api
       POSTGRES_PORT: 5432
       POSTGRES_HOST: db
     ports:
       - "5436:5432"
     healthcheck:
-      test: pg_isready -U postgres -d case_api
+      test: pg_isready -U postgres -d api
       start_period: 5s
       start_interval: 0.2s
       interval: 30s
@@ -21,16 +21,16 @@ services:
       retries: 3
 
   api:
-    container_name: case-api
+    container_name: api
     build: .
-    command: uvicorn app:case_api --host 0.0.0.0 --port 8027 --reload
+    command: uvicorn app:api --host 0.0.0.0 --port 8027 --reload
     ports:
       - "8027:8027"
     environment:
       SECRET_KEY: "TEST_KEY"
       <<: *database_config
     volumes:
-      - ./app:/home/app/case_api/app
+      - ./app:/home/app/moj-fastapi-skeleton/app
     depends_on:
       db:
         condition: service_healthy
