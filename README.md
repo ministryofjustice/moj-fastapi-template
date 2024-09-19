@@ -4,7 +4,7 @@
 The MOJ FastAPI Skeleton is a starting place for teams to kick start development of FastAPI based REST APIs.
 
 This skeleton contains example implementations of the following features:
-- A FastAPI REST API with CRUD operations
+- An example FastAPI REST API with CRUD operations
 - Database models using [SQLModel](https://sqlmodel.tiangolo.com/), a wrapper of SQLAlchemy, allowing you to easily define request, response and DB schema models with automatic type validation by [Pydantic](https://docs.pydantic.dev/latest/).
 - Database migrations with Alembic, this is configured for Postgres by default.
 - OAuth 2.0 with JWT authentication
