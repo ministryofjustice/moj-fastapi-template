@@ -23,8 +23,19 @@ def upgrade() -> None:
         sa.Column("created_at", sa.DateTime(), nullable=False),
         sa.Column("updated_at", sa.DateTime(), nullable=False),
         sa.Column("id", sa.Uuid(), nullable=False),
-        sa.Column('category', sa.Enum('asylum', 'crime', 'debt', 'family', 'housing', 'welfare', name='category'),
-                  nullable=True),
+        sa.Column(
+            "category",
+            sa.Enum(
+                "asylum",
+                "crime",
+                "debt",
+                "family",
+                "housing",
+                "welfare",
+                name="category",
+            ),
+            nullable=True,
+        ),
         sa.Column("exceptional_funding", sa.Boolean(), nullable=False),
         sa.PrimaryKeyConstraint("id"),
     )

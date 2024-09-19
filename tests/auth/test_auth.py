@@ -23,7 +23,8 @@ def test_auth_fail_case(client: TestClient):
 
 def test_create_case_disabled_user(client: TestClient, auth_token_disabled_user):
     response = client.delete(
-        f"/cases/{uuid4()}", headers={"Authorization": f"Bearer {auth_token_disabled_user}"}
+        f"/cases/{uuid4()}",
+        headers={"Authorization": f"Bearer {auth_token_disabled_user}"},
     )
     json = response.json()
     assert json["detail"] == "User Disabled"
@@ -64,7 +65,9 @@ def test_credential_exception_no_user(session, client: TestClient, auth_token):
     user = session.get(User, username)
     session.delete(user)
     session.commit()
-    response = client.delete(f"/cases/{uuid4()}", headers={"Authorization": f"Bearer {auth_token}"})
+    response = client.delete(
+        f"/cases/{uuid4()}", headers={"Authorization": f"Bearer {auth_token}"}
+    )
     json = response.json()
     assert json["detail"] == "Could not validate credentials"
     assert response.status_code == 401

@@ -7,6 +7,7 @@ from pydantic import computed_field
 
 class CaseRequest(SQLModel):
     """Request model used to create a new case"""
+
     category: Category | None = Field()  # This field is optional
 
 
@@ -17,6 +18,7 @@ class Case(CaseRequest, TableModelMixin, table=True):
     The properties aren't stored in the database, instead they are calculated each time the case is read
     and returned from the read route, or accessed from the object like any other attribute.
     """
+
     exceptional_funding: bool = Field(default=False)
 
     @computed_field
