@@ -10,7 +10,7 @@ This skeleton contains example implementations of the following features:
 - OAuth 2.0 with JWT authentication
 - A Dockerfile and Docker Compose for one step local development
 - Unit tests with a test HTTP client and an in-memory testing database.
-- SonarCloud and Sentry support
+- [SonarCloud](https://www.sonarsource.com/products/sonarcloud/) and [Sentry](https://sentry.io/) support
 - A CI/CD Pipeline and Helm Charts for deploying to the MOJ's [Cloud Platform](https://user-guide.cloud-platform.service.justice.gov.uk/).
 
 ## Documentation
@@ -54,7 +54,11 @@ ___
 
 ## Adding an authorised user
 An authorised user is created as part of the run_local script.
-The created user will have the username cla_admin and password of cla_admin.
+
+The created user will have the following credentials:
+
+- **Username:** test_user
+- **Password:** test_password
 
 ## Running in a virtual environment
 If you wish to run the app in a virtual environment you can do so with:
@@ -95,7 +99,7 @@ For information on writing tests please see [here](./tests/README.md).
 
 ## Code formatting and linting
 The following will:
-- Generate requirement.txt files from files inside requirements/source/*.in and put them into requirements/generated/*.txt
+- Generate requirement.txt files from files inside `requirements/source/*.in` and put them into `requirements/generated/*.txt`
 - Run linting checks with ruff
 
 ```shell
