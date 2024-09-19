@@ -1,7 +1,11 @@
 ## How to deploy this project to Cloud Platform
 To deploy this to the MOJ Cloud Platform you will need to follow the [Cloud Platform documentation](https://user-guide.cloud-platform.service.justice.gov.uk/documentation/deploying-an-app/deploying-an-example-application.html).
 
-The example Helm Chart is set up to deploy to four environments:
+To see an example of a Cloud Platform environment namespace configured for this project take a look at the `laa-civil-legal-aid` namespaces [here](https://github.com/ministryofjustice/cloud-platform-environments/tree/main/namespaces/live.cloud-platform.service.justice.gov.uk/laa-civil-case-api-production).
+
+___
+
+This example Helm Chart is set up to deploy to four environments:
 - Dev (Where a new app will be deployed for each feature branch)
 - UAT
 - Staging
