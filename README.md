@@ -8,7 +8,7 @@ This skeleton contains example implementations of the following features:
 - Database models using [SQLModel](https://sqlmodel.tiangolo.com/), a wrapper of SQLAlchemy, allowing you to easily define request, response and DB schema models with automatic type validation by [Pydantic](https://docs.pydantic.dev/latest/).
 - Database migrations with [Alembic](https://alembic.sqlalchemy.org/en/latest/), this is configured for Postgres by default.
 - OAuth 2.0 with JWT authentication
-- Dockerfile and Docker Compose
+- A Dockerfile and Docker Compose for one step local development
 - Unit tests with a test HTTP client and an in-memory testing database.
 - SonarCloud and Sentry support
 - A CI/CD Pipeline and Helm Charts for deploying to the MOJ's [Cloud Platform](https://user-guide.cloud-platform.service.justice.gov.uk/).
