@@ -1,3 +1,4 @@
 -r requirements-base.in
 pytest==7.4.4
 freezegun
+httpx
