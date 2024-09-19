@@ -4,7 +4,7 @@ your ECR secrets into GitHub actions.
 
 You can find documentation on setting this up [here](https://user-guide.cloud-platform.service.justice.gov.uk/documentation/deploying-an-app/deploying-an-example-application.html).
 
-You can see how to use the included example Helm Chart [here](../helm_deploy/README.md).
+You can see how to use the included example Helm Chart [here](../../helm_deploy/README.md).
 
 To use Sonar Cloud you will need to have your `SONAR_TOKEN` set in your GitHub actions secrets.
 
