@@ -1,7 +1,7 @@
 # MOJ FastAPI Skeleton
 [![Standards Icon]][Standards Link]
 
-The MOJ FastAPI Skeleton is a starting place for teams to kick-start development of FastAPI based REST APIs.
+The MOJ FastAPI Skeleton is a foundation for teams to kick-start development of FastAPI based REST APIs.
 
 This skeleton contains example implementations of the following features:
 - A [FastAPI](https://fastapi.tiangolo.com/) based REST API with CRUD operations
