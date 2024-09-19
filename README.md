@@ -25,7 +25,10 @@ Documentation about how to build on this skeleton can be found here:
 
 - [Testing](./tests/README.md)
 
-If you need any further help using this skeleton please feel free to reach out to [Ben Millar](mailto:ben.millar@digital.justice.gov.uk).
+This API was built and maintained by the [Civil Legal Advice team](mailto:civil-legal-advice@digital.justice.gov.uk).
+
+If you need any further help using this skeleton please feel free to reach out to us in the [#laa-cla-dev](https://moj.enterprise.slack.com/archives/CFUESB43G) Slack channel.
+
 ## Running the API
 It is recommended to use Docker to run the app and database.
 
@@ -39,7 +42,7 @@ This command:
 
 #### The API docs can then be found at: [localhost:8027](http://localhost:8027)
 
-> If you run into any isues please see [TROUBLESHOOT.md](TROUBLESHOOT.md).
+> If you run into any issues please see [TROUBLESHOOT.md](TROUBLESHOOT.md).
 ___
 
 ## Adding an authorised user
@@ -104,7 +107,6 @@ To format all files in the directory, run:
 ```shell
 ruff format
 ```
-
 
 
 [Standards Link]: https://operations-engineering-reports.cloud-platform.service.justice.gov.uk/public-report/laa-civil-case-api "Repo standards badge."
