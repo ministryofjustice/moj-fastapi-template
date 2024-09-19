@@ -34,7 +34,7 @@ This API was built and maintained by the [Civil Legal Advice team](mailto:civil-
 
 If you need any further help using this skeleton please feel free to reach out to us in the [#laa-cla-dev](https://moj.enterprise.slack.com/archives/CFUESB43G) Slack channel.
 
-If you build anything with this Skeleton we would love to hear about it!
+If you build anything with this skeleton we would love to hear about it!
 
 ## Running the API
 It is recommended to use Docker to run the app and database.
