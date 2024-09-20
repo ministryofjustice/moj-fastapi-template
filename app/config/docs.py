@@ -13,7 +13,6 @@ docs_config = {
     "version": "0.0.1",
     "contact": {
         "name": "Civil Legal Advice",
-        "email": "civil-legal-advice@digital.justice.gov.uk",
     },
     "license_info": {
         "name": "MIT Licence",

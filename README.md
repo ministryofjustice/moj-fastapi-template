@@ -32,7 +32,7 @@ Documentation about how to use and build on this skeleton can be found here:
 
 - [GitHub Actions Pipeline](.github/workflows/README.md)
 
-This API was built and maintained by the [Civil Legal Advice team](mailto:civil-legal-advice@digital.justice.gov.uk).
+This API was built and maintained by the Civil Legal Advice team.
 
 If you need any further help using this skeleton please feel free to reach out to us in the [#laa-cla-dev](https://moj.enterprise.slack.com/archives/CFUESB43G) Slack channel.
 
