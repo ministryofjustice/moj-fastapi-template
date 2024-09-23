@@ -74,6 +74,11 @@ pip install -r requirements/generated/requirements-development.txt
 
 ### Running the API
 
+To start a Postgres DB run:
+```bash
+docker compose up db -d
+```
+
 To migrate the database to the latest revision run:
 ```bash
 alembic upgrade head
