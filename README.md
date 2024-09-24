@@ -62,17 +62,32 @@ The created user will have the following credentials:
 - **Username:** test_user
 - **Password:** test_password
 
+___
 ## Running in a virtual environment
-If you wish to run the app in a virtual environment you can do so with:
+If you wish to run the app in a virtual environment you will first require Python 3.12.
+
+You can see your Python version with:
+```bash
+python3 -V
+```
+If you are  running below Python 3.12 you can install it manually or use pyenv.
+```bash
+brew install pyenv
+pyenv install 3.12
+pyenv global 3.12
+```
+
+You can then start a virtual environment with:
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 ```
-```commandline
+And install the requirements using
+```bash
 pip install -r requirements/generated/requirements-development.txt
 ```
 
-### Running the API
+### Running the database
 
 To start a Postgres DB run:
 ```bash
@@ -89,6 +104,8 @@ To run the web server run:
 ```shell
 uvicorn app:api --reload
 ```
+
+___
 
 ## Tests
 To install testing dependencies run:
