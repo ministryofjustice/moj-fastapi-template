@@ -87,6 +87,8 @@ And install the requirements using
 pip install -r requirements/generated/requirements-development.txt
 ```
 
+If you encounter issues such as `ModuleNotFoundError` restart your terminal session.
+
 ### Running the database
 
 To start a Postgres DB run:
@@ -109,11 +111,11 @@ ___
 
 ## Tests
 To install testing dependencies run:
-```commandline
+```bash
 pip install -r requirements/generated/requirements-testing.txt
 ```
 Tests are managed using Pytest and can be run by using:
-```commandline
+```bash
 pytest
 ```
 
@@ -126,7 +128,7 @@ The following will:
 - Generate requirement.txt files from files inside `requirements/source/*.in` and put them into `requirements/generated/*.txt`
 - Run linting checks with ruff
 
-```shell
+```bash
 pre-commit install
 ```
 ### Manually running linting
