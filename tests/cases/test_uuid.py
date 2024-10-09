@@ -12,7 +12,7 @@ def test_id_is_uuid():
 
 def test_uuid_collision(session: Session):
     """Tests attempting to cause a collision by manually creating two Cases with the same ID.
-    The IDs should be re-generated  as they are being commited to the database rather than causing an IntegrityError.
+    The IDs should be re-generated  as they are being committed to the database rather than causing an IntegrityError.
     """
     case_id = uuid.UUID("1b08fd0e-724f-4d6b-af74-2b7ce3432dbc")
     case_1 = Case(id=case_id)
@@ -31,7 +31,7 @@ def test_uuid_collision(session: Session):
 @pytest.mark.filterwarnings("ignore: New instance")
 def test_existing_uuid_collision(session: Session):
     """Tests attempting to cause a collision by manually creating a case using the ID of another.
-    The IDs should be re-generated as they are being commited to the database rather than causing an IntegrityError.
+    The IDs should be re-generated as they are being committed to the database rather than causing an IntegrityError.
     """
     original_case = Case()
     session.add(original_case)
