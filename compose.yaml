@@ -22,7 +22,10 @@ services:
 
   api:
     container_name: api
-    build: .
+    build:
+      context: .
+      args:
+        REQUIREMENTS: "requirements-development.txt"
     command: uvicorn app:api --host 0.0.0.0 --port 8027 --reload
     ports:
       - "8027:8027"
@@ -31,6 +34,7 @@ services:
       <<: *database_config
     volumes:
       - ./app:/home/app/moj-fastapi-skeleton/app
+      - ./tests:/home/app/moj-fastapi-skeleton/tests
     depends_on:
       db:
         condition: service_healthy
