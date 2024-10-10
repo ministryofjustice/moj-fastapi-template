@@ -72,7 +72,7 @@ async def change_category(
     """Update a case category without changing any other attributes of the case."""
     case = session.get(Case, case_id)
     if case is None:
-        raise HTTPException(status_code=404, detail="Car not found")
+        raise HTTPException(status_code=404, detail="Case not found")
     case.category = category
     session.add(case)
     session.commit()
