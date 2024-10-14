@@ -1,5 +1,5 @@
 import pytest
-from app.models.cases import Case
+from app.models import Case
 import uuid
 from sqlmodel import Session
 from pydantic import ValidationError

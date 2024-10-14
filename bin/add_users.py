@@ -5,7 +5,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from app.db import get_session
-from app.models.users import User
+from app.models.user_model import User
 from app.auth.security import get_password_hash
 import logging
 

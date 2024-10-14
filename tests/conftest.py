@@ -7,7 +7,7 @@ from fastapi.testclient import TestClient
 from sqlalchemy.orm import sessionmaker
 
 from app.auth.security import get_password_hash
-from app.models.users import User
+from app.models import User
 
 SECRET_KEY = "TEST_KEY"
 

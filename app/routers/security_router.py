@@ -8,7 +8,7 @@ from app.auth.security import (
     authenticate_user,
     ACCESS_TOKEN_EXPIRE_MINUTES,
 )
-from app.models.users import Token
+from app.models.user_model import Token
 from sqlmodel import Session
 
 from app.db import get_session

@@ -6,26 +6,29 @@ Each route needs to belong to an APIRouter. APIRouters are analogous to Flask Bl
 together and can be assigned shared a prefix, tags and other attributes.
 
 See [here](https://fastapi.tiangolo.com/reference/apirouter/) for the documentation on the APIRouter class.
+
 ```python
 from fastapi import APIRouter
 from sqlmodel import SQLModel
-from app.models.categories import Categories
+from app.models.category_model import Categories
+
 router = APIRouter(prefix="/case",
-                    tags=["cases"])
+                   tags=["cases"])
 
 
 @router.get("/{case_id}")
 async def read_case(case_id: int):
-     # We will discuss how to read from the database below.
-    case = {"id": 1, 
-            "name": "test", 
+    # We will discuss how to read from the database below.
+    case = {"id": 1,
+            "name": "test",
             "category": "Housing"}
     return case
-    
+
 
 class Case(SQLModel):
     name: str  # Pydantic ensures the name is always a string
     category: Categories | None = None  # This means that the category must be of the type Categories or None
+
 
 @router.post("/")
 async def create_case(case: Case):
@@ -35,7 +38,7 @@ These create_case route only accepts post requests and requires the request body
 the Case model. 
 
 This means the body needs to contain a name which can be encoded as a string and a category which 
-matches one of the categories of law defined in the [/app/models/categories.py](../models/categories.py) enum class.
+matches one of the categories of law defined in the [/app/models/categories.py](../models/category_model.py) enum class.
 
 To learn more about models please read [/app/models/README.md](../models/README.md)
 
@@ -47,7 +50,7 @@ FastAPI `Depends()` method.
 
 ```python
 from fastapi import APIRouter, HTTPException, Depends
-from app.models.cases import CaseRequest, Case
+from app.models.case_model import CaseRequest, Case
 from sqlmodel import Session, select
 from app.db import get_session
 from datetime import datetime

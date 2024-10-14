@@ -10,7 +10,7 @@ from freezegun import freeze_time
 import pytest
 from jwt import ExpiredSignatureError
 from datetime import timedelta, datetime
-from app.models.users import User
+from app.models import User
 from uuid import uuid4
 
 

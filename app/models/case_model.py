@@ -1,6 +1,6 @@
 from sqlmodel import Field, SQLModel
-from app.models.base import TableModelMixin
-from app.models.categories import Category
+from app.models.base_model import TableModelMixin
+from app.models.category_model import Category
 from datetime import timedelta, datetime, UTC
 from pydantic import computed_field
 

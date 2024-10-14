@@ -54,12 +54,13 @@ Please see [/migrations/README.md](../db/migrations/README.md) for instructions 
 
 ## How do I use these models to define endpoint schemas?
 By implementing them as part of your routers' method arguments they are automatically used to validate the user's input.
+
 ```python
-from app.models.cases import Case, CaseRequest
-from app.routers.case_information import router
+from app.models.case_model import Case, CaseRequest
+from app.routers import case_router
 
 
-@router.post("/", tags=["cases"], response_model=Case)
+@case_router.post("/", tags=["cases"], response_model=Case)
 def create_case(request: CaseRequest):
     pass
 ```

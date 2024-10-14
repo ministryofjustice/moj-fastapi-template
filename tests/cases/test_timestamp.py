@@ -1,6 +1,5 @@
 from sqlmodel import Session
-from app.models.cases import Case
-from app.models.categories import Category
+from app.models import Case, Category
 from datetime import datetime, UTC
 
 

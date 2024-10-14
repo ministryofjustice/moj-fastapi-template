@@ -47,16 +47,18 @@ used by each endpoint.
 
 If you want direct access to this in-memory database for your tests you simply need to include the session fixture
 defined in `tests/conftest.py`.
+
 ```python
 from sqlmodel import Session, select
-from app.models.cases import Case
+from app.models import Case
 from datetime import datetime as dt
+
 
 def test_database(session: Session):
     # Create a new case object
     case = Case(id=1, name='test', category='Housing', time=dt.now())
     session.add(case)  # Write it to the database
-    
+
     db_case = session.get(Case, 1)  # Read case with ID: 1 from the database
     assert db_case == case  # Assert they are equal
 ```

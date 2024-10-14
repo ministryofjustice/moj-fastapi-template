@@ -1,4 +1,4 @@
-from app.models.cases import Case
+from app.models import Case
 from datetime import timedelta
 
 
