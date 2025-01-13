@@ -89,7 +89,7 @@ pytest==7.4.4
     # via -r requirements/source/requirements-testing.in
 python-dateutil==2.9.0.post0
     # via freezegun
-python-multipart==0.0.9
+python-multipart==0.0.18
     # via -r requirements/source/requirements-base.in
 pyyaml==6.0.1
     # via pre-commit
@@ -110,7 +110,7 @@ sqlalchemy[asyncio]==2.0.31
     #   sqlmodel
 sqlmodel==0.0.21
     # via -r requirements/source/requirements-base.in
-starlette==0.37.2
+starlette==0.40.0
     # via fastapi
 typing-extensions==4.12.2
     # via
@@ -124,5 +124,5 @@ urllib3==2.2.2
     # via sentry-sdk
 uvicorn==0.30.6
     # via -r requirements/source/requirements-base.in
-virtualenv==20.26.3
+virtualenv==20.26.6
     # via pre-commit
