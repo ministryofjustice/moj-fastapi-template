@@ -18,7 +18,7 @@ email-validator==2.2.0
 fastapi[standard]==0.115.9
 fastapi-cli[standard]==0.0.7
 greenlet==3.0.3
-h11==0.14.0
+h11==0.16.0
 httpcore==1.0.7
 httptools==0.6.4
 httpx==0.28.1
