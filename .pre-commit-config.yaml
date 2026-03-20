@@ -6,7 +6,7 @@ repos:
     hooks:
       - id: baseline
   - repo: https://github.com/jazzband/pip-tools
-    rev: v7.5.2
+    rev: v7.5.3
     hooks:
       - id: pip-compile
         name: pip-compile requirements-development.in
