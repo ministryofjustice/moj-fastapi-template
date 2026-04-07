@@ -22,13 +22,13 @@ jobs:
       contents: read  # This is required for actions/checkout
     steps:
       - name: Assume role in Cloud Platform
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@8df5847569e6427dd6c4fb1cf565c83acfa8afa7 # v6.1.0
         with:
           role-to-assume: ${{ secrets.ECR_ROLE_TO_ASSUME }}
           aws-region: ${{ inputs.ECR_REGION }}
 
       - name: Login to container repository
-        uses: aws-actions/amazon-ecr-login@v2
+        uses: aws-actions/amazon-ecr-login@261fc3d4806db1fa66a15cc11113c456db8870a7 #v2.1.2
         id: login-ecr
         with:
           mask-password: true
